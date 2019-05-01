@@ -1,6 +1,6 @@
 import React from 'react';
 import Title from '../layout/Title';
-// import StatsBar from './StatsBar';
+import StatsBar from './StatsBar';
 
 type StatsItem = {
     name: string;
@@ -17,8 +17,7 @@ const StatsItem: React.FC<StatsItem> = (props) => {
     return (
         <div className="stats-item">
             <Title size={20} text={name} />
-            {/* <StatsBar currentValue={currentValue} inverse={inverse} /> */}
-            {currentValue}
+            <StatsBar value={currentValue} inverse={inverse} />
         </div>
     )
 }

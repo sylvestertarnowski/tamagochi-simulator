@@ -16,7 +16,10 @@ const Stats: React.FC<Stats> = (props) => {
     return (
         <Column>
             <Title size={40} text="Stats" />
-            <StatsItem name="Happiness" currentValue={happiness}/>
+            <StatsItem name="Hunger" currentValue={hunger} />
+            <StatsItem name="Happiness" currentValue={happiness} />
+            <StatsItem name="Health" currentValue={health} />
+            <StatsItem name="Power" currentValue={power} />
         </Column>
     )
 }

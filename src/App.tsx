@@ -31,7 +31,7 @@ class App extends React.Component<Props, State> {
     action: "none",
     happiness: 50,
     power: 20,
-    hunger: 0,
+    hunger: 40,
     health: 100,
   }
 
