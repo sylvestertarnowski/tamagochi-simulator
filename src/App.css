@@ -7,3 +7,9 @@
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
 }
+
+.stats-item {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Wrapper: React.FC = ({children}) => {
+const Column: React.FC = ({children}) => {
     return (
         <div className="wrapper">
             {children}
@@ -8,4 +8,4 @@ const Wrapper: React.FC = ({children}) => {
     )
 }
 
-export default Wrapper;
+export default Column;

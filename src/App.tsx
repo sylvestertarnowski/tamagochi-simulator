@@ -49,10 +49,7 @@ class App extends React.Component<Props, State> {
   }
 
   render() {
-    const { name, happiness, power, performingAction, action } = this.state;
-    // const actionButtons = <div>
-    //   <Button id="feed" name="Feed" onClick={this.handleFeed} />
-    // </div>
+    const { name, happiness, power, performingAction, action, health, hunger } = this.state;
     return (
       <Column>
         <Row>
@@ -60,7 +57,10 @@ class App extends React.Component<Props, State> {
         </Row>
         <Row>
           <Stats
-
+            happiness={happiness}
+            health={health}
+            hunger={hunger}
+            power={power}
           />
           <Status
             name={name}
@@ -69,6 +69,8 @@ class App extends React.Component<Props, State> {
           />
           <Actions 
             handleFeed={this.handleFeed}
+            performingAction={performingAction}
+            action={action}
           />
         </Row>
       </Column>
