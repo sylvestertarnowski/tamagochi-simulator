@@ -21,12 +21,13 @@ const StatsBar: React.FC<StatsBar> = (props) => {
         background: color,
         height: "20px",
         width: value.toString() + "%",
+        maxWidth: "100px",
     }
 
     return (
         <div>
             <div style={outerBar}>
-                <div style={innerBar}>{value}</div>
+                <div style={innerBar}>{value >= 0 ? value : 0}</div>
             </div>
         </div>
     )

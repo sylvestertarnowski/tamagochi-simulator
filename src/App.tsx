@@ -40,12 +40,36 @@ class App extends React.Component<Props, State> {
       performingAction: true,
       action: "feeding"
     }, () => setTimeout(() => this.setState(prevState => {
+      const { hunger, health } = prevState;
       return {
         performingAction: false,
         action: "none",
-        hunger: prevState.hunger - 20
+        hunger: hunger - 20,
+        health: health + 10,
       }
     }), 5000));
+  }
+
+  handlePlay = () => {
+    this.setState({
+      performingAction: true,
+      action: "playing"
+    }, () => setTimeout(() => this.setState(prevState => {
+      const { hunger, happiness, power, health } = prevState;
+      return {
+        performingAction: false,
+        action: "none",
+        happiness: happiness + 10,
+        hunger: hunger + 10,
+        power: power + 5,
+        health: health - 5,
+      }
+    }), 10000));
+  }
+
+  actionMethods = {
+    handleFeed: this.handleFeed,
+    handlePlay: this.handlePlay
   }
 
   render() {
@@ -68,7 +92,7 @@ class App extends React.Component<Props, State> {
             power={power}
           />
           <Actions 
-            handleFeed={this.handleFeed}
+            actionMethods={this.actionMethods}
             performingAction={performingAction}
             action={action}
           />
