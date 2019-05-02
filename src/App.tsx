@@ -7,19 +7,18 @@ import Actions from './components/actions/Actions';
 import Row from './components/layout/Row';
 import Column from './components/layout/Column';
 
-
 type State = {
   name: string;
   performingAction: boolean;
   action: Action;
   happiness: number;
-  power: number;
-  hunger: number;
   health: number;
+  hunger: number;
+  power: number;
 };
+
 type Props = {
   name?: string;
-  handleFeed?: any;
 };
 
 type Action = "feeding" | "playing" | "training" | "sleeping" | "none";
@@ -36,40 +35,44 @@ class App extends React.Component<Props, State> {
   }
 
   handleFeed = () => {
-    this.setState({
-      performingAction: true,
-      action: "feeding"
-    }, () => setTimeout(() => this.setState(prevState => {
-      const { hunger, health } = prevState;
-      return {
-        performingAction: false,
-        action: "none",
-        hunger: hunger - 20,
-        health: health + 10,
-      }
-    }), 5000));
+    this.handleActionTemplate("feeding", 5, 10, -20, -5, 7000);
   }
 
   handlePlay = () => {
+    this.handleActionTemplate("playing", 15, -5, 10, -5, 10000);
+  }
+
+  handleSleep = () => {
+    this.handleActionTemplate("sleeping", 5, 15, 10, -5, 20000);
+  }
+
+  handleTrain = () => {
+    this.handleActionTemplate("training", -10, 5, 10, 20, 12000);
+  }
+
+  // Allows user to define an action, without re-writing bunch of boilerplate
+  handleActionTemplate = (act: Action, hap: number, hea: number, hun: number, pow: number, time: number) => {
     this.setState({
       performingAction: true,
-      action: "playing"
+      action: act
     }, () => setTimeout(() => this.setState(prevState => {
-      const { hunger, happiness, power, health } = prevState;
+      const { happiness, health, hunger, power } = prevState;
       return {
         performingAction: false,
         action: "none",
-        happiness: happiness + 10,
-        hunger: hunger + 10,
-        power: power + 5,
-        health: health - 5,
+        happiness: happiness + hap,
+        health: health + hea,
+        hunger: hunger + hun,
+        power: power + pow,
       }
-    }), 10000));
+    }), time));
   }
 
   actionMethods = {
     handleFeed: this.handleFeed,
-    handlePlay: this.handlePlay
+    handlePlay: this.handlePlay,
+    handleSleep: this.handleSleep,
+    handleTrain: this.handleTrain,
   }
 
   render() {

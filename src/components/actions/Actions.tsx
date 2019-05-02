@@ -8,13 +8,15 @@ type Actions = {
     actionMethods: {
         handleFeed: () => void;
         handlePlay: () => void;
+        handleSleep: () => void;
+        handleTrain: () => void;
     };
     action: string;
 }
 
 const Actions: React.FC<Actions> = (props) => {
     const { performingAction, action } = props;
-    const { handleFeed, handlePlay } = props.actionMethods;
+    const { handleFeed, handlePlay, handleSleep, handleTrain } = props.actionMethods;
     return (
         <Column>
             <Title size={40} text="Actions" />
@@ -25,6 +27,8 @@ const Actions: React.FC<Actions> = (props) => {
                     <Column>
                         <Button handleAction={handleFeed} name="Feed" />
                         <Button handleAction={handlePlay} name="Play" />
+                        <Button handleAction={handleSleep} name="Sleep" />
+                        <Button handleAction={handleTrain} name="Train" />
                     </Column>
             }
         </Column>
