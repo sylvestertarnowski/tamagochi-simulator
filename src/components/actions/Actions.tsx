@@ -2,6 +2,7 @@ import React from 'react';
 import Column from '../layout/Column';
 import Title from '../layout/Title';
 import Button from './Button';
+import ActionMessage from './ActionMessage';
 
 type Actions = {
     performingAction: boolean;
@@ -22,7 +23,7 @@ const Actions: React.FC<Actions> = (props) => {
             <Title size={40} text="Actions" />
             {
                 performingAction ?
-                    <span>{`Monster is ${action} right now, please wait...`}</span>
+                    <ActionMessage action={action} />
                     :
                     <Column>
                         <Button handleAction={handleFeed} name="Feed" />

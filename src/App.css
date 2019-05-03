@@ -1,6 +1,7 @@
-.wrapper {
+.column {
   display: flex;
   flex-direction: column;
+  margin: 10px;
 }
 
 .row {

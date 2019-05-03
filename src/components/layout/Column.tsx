@@ -2,7 +2,7 @@ import React from 'react';
 
 const Column: React.FC = ({children}) => {
     return (
-        <div className="wrapper">
+        <div className="column">
             {children}
         </div>
     )
