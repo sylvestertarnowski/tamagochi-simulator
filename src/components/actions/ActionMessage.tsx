@@ -1,4 +1,5 @@
 import React from 'react';
+import MsgAnimation from './MsgAnimation';
 
 type ActionMessage = {
     action: string;
@@ -7,7 +8,7 @@ type ActionMessage = {
 const ActionMessage: React.FC<ActionMessage> = (props) => {
     const { action } = props;
     return (
-        <span>{`Monster is ${action} right now, please wait...`}</span>
+        <span>{`Monster is ${action} right now, please wait`}<MsgAnimation /></span>
     )
 }
 
