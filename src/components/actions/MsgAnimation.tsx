@@ -1,27 +1,33 @@
 import React from 'react';
 
-type StateObject = {
-    dots: string[];
+type State = {
+    dots: string;
 }
 
-const MsgAnimation: React.FC = () => {
-    const state: StateObject = {
-        dots: []
-    }
-    const animation = () => {
-        while(true) {
-            setTimeout(() => {
-                state.dots.push(".");
-            }, 500);
-        }
+type Props = any;
+
+class MsgAnimation extends React.Component<Props, State> {
+    readonly state: State = {
+        dots: "",
     }
 
-    animation();
+    handleDots = () => {
+        this.setState(prevState => {
+            const { dots } = prevState;
+            return { dots: dots + ". ", }
+        })
+    }
 
-    return (
-        
-        <span>{state.dots.join(" ")}</span>
-    )
+    handleAnimation = () => {
+        setInterval(() => this.handleDots, 1000);
+    }
+
+    render() {
+        this.handleAnimation();
+        return (
+            <span>{this.state.dots}</span>
+        )
+    }
 }
 
 export default MsgAnimation;
