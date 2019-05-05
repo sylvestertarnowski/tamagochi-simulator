@@ -7,10 +7,7 @@ import ActionMessage from './ActionMessage';
 type Actions = {
     performingAction: boolean;
     actionMethods: {
-        handleFeed: () => void;
-        handlePlay: () => void;
-        handleSleep: () => void;
-        handleTrain: () => void;
+        [key: string]: () => void;
     };
     action: string;
 }
