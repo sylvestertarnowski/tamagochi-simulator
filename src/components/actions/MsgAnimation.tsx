@@ -11,21 +11,21 @@ class MsgAnimation extends React.Component<Props, State> {
         dots: "",
     }
 
-    handleDots = () => {
+    handleDots = (): void => {
         this.setState(prevState => {
             const { dots } = prevState;
             return { dots: dots + ". ", }
         })
     }
 
-    handleAnimation = () => {
-        setInterval(() => this.handleDots, 1000);
+    componentDidMount() {
+        setInterval(() => this.handleDots(), 1000);
     }
 
     render() {
-        this.handleAnimation();
+        let { dots } = this.state;
         return (
-            <span>{this.state.dots}</span>
+            <span>{dots}</span>
         )
     }
 }
