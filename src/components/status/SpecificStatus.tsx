@@ -1,4 +1,6 @@
 import React from 'react';
+import Hunger from './Hunger';
+import Column from '../layout/Column';
 
 type Props = {
     name: string;
@@ -9,10 +11,20 @@ type Props = {
 }
 
 const SpecificStatus: React.FC<Props> = (props) => {
-    const { happiness, hunger, power, health } = props;
+    const { happiness, hunger, power, health, name } = props;
 
     return (
-        <div>This is specific Status, and power is: {power}</div>
+        <Column>
+        {
+            power > 80 ?
+            <div>Your {name} is powerful.</div> :
+            <div>{name} still needs some training.</div>
+        }
+        <Hunger
+            name={name}
+            hunger={hunger}
+        />
+        </Column>
     )
 }
 
