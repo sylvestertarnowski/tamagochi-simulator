@@ -13,7 +13,7 @@ type Props = {
 }
 
 const SpecificStatus: React.FC<Props> = (props) => {
-    const { happiness, hunger, power, health, name } = props;
+    const { happiness, hunger, power, name } = props;
 
     return (
         <Column>

@@ -92,7 +92,9 @@ class App extends React.Component<Props, State> {
           <Status
             name={name}
             happiness={happiness}
+            health={health}
             power={power}
+            hunger={hunger}
           />
           <Actions 
             actionMethods={this.actionMethods}

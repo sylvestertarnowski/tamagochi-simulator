@@ -12,7 +12,7 @@ const Power: React.FC<P> = (props) => {
             {
                 power > 80 ?
                 <span>Your {name} is powerful.</span> :
-                <span>{name} still needs some training.</span>
+                <span>{name} still needs some training to reach his full potential.</span>
             }
         </div>
     )
